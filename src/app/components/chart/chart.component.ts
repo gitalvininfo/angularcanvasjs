@@ -12,59 +12,77 @@ export class ChartComponent implements OnInit {
 
   constructor() { }
 
+
+
+
   ngOnInit() {
     // let dataPoints = [];
     let chartdata = [];
     let dataPoints = [
       {
-        "college": "CIT",
-        "count": 250
+        "college": 1574085727,
+        "count": 25000
       },
       {
-        "college": "CBA",
-        "count": -350
+        "college": 1573999327,
+        "count": -35000
       },
       {
-        "college": "CCJE",
-        "count": -150
+        "college": 1573826527,
+        "count": -15000
       },
       {
-        "college": "OED",
-        "count": -250
+        "college": 1573653727,
+        "count": -25000
       },
       {
-        "college": "CAS",
-        "count": 340
+        "college": 1573480927,
+        "count": 34000
       },
       {
-        "college": "CAS",
-        "count": 340
+        "college": 1573394527,
+        "count": 34000
       },
       {
-        "college": "CAS",
-        "count": 340
+        "college": 1573308127,
+        "count": 32000
       },
       {
-        "college": "CAS",
-        "count": 340
+        "college": 1573221727,
+        "count": 3100
       },
       {
-        "college": "CAS",
-        "count": 340
+        "college": 1573135327,
+        "count": 3900
       },
       {
-        "college": "CAS",
-        "count": 340
+        "college": 1572962527,
+        "count": 44000
       },
       {
-        "college": "CAS",
-        "count": 340
+        "college": 1572876127,
+        "count": 4400
       },
       {
-        "college": "CAS",
-        "count": 340
+        "college": 1572616927,
+        "count": 45000
       }
     ]
+
+
+
+
+    var new_array = dataPoints.map(function (element) {
+      var temp = new Date((element[1]) * 1000)
+      element[1] = temp.toDateString()
+      return element;
+    })
+    console.log(new_array);
+
+
+
+
+
 
     for (var i = 0; i < dataPoints.length; i++) {
       chartdata.push({
@@ -87,6 +105,7 @@ export class ChartComponent implements OnInit {
         borderColor: '#444',
         fontColor: '#444',
         content: "{name}: {y}"
+
       },
       axisX: {
         crosshair: {
@@ -102,26 +121,34 @@ export class ChartComponent implements OnInit {
       },
 
       data: [{
-        markerType: "none",
         name: "Total",
+        markerSize: 0,
+        markerType: "circle",
+        markerColor: "#00695c",
         type: "line",
         lineColor: "#00695c",
-        dataPoints: chartdata, markerColor: "#ddd"
+        dataPoints: chartdata
       }]
     });
 
-    setColor(chart);
+    // setColor(chart);
+    this.setColor(chart);
     chart.render();
-    function setColor(chart) {
-      for (var i = 0; i < chart.options.data.length; i++) {
-        const dataSeries = chart.options.data[i];
-        for (var j = 0; j < dataSeries.dataPoints.length; j++) {
-          if (dataSeries.dataPoints[j].y <= 0)
-            dataSeries.dataPoints[j].lineColor = '#ff443d';
+
+  }
+  setColor(chart) {
+    for (var i = 0; i < chart.options.data.length; i++) {
+      const dataSeries = chart.options.data[i];
+      for (var j = 0; j < dataSeries.dataPoints.length; j++) {
+        if (dataSeries.dataPoints[j].y <= 0) {
+          dataSeries.dataPoints[j].lineColor = '#ff443d';
+          dataSeries.dataPoints[j].markerColor = '#ff443d';
         }
       }
     }
 
   }
+
+
 
 }
