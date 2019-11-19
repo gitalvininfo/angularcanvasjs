@@ -1,22 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+
 // import * as CanvasJS from '';
 import * as CanvasJS from './canvasjs.min';
 import { getRtlScrollAxisType } from '@angular/cdk/platform';
-
+// import { CustomdatePipe } from '../../customdate.pipe';
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css']
+  styleUrls: ['./chart.component.css'],
+  providers: [DatePipe]
 })
 export class ChartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private datePipe: DatePipe) { }
 
 
-
+  myTimestamp: any;
 
   ngOnInit() {
     // let dataPoints = [];
+
+
+
     let chartdata = [];
     let dataPoints = [
       {
@@ -69,24 +75,14 @@ export class ChartComponent implements OnInit {
       }
     ]
 
-
-
-
-    var new_array = dataPoints.map(function (element) {
-      var temp = new Date((element[1]) * 1000)
-      element[1] = temp.toDateString()
-      return element;
-    })
-    console.log(new_array);
-
-
-
-
-
+    // const result = dataPoints.map(function (a) { return a.college * 1000 });
+    // console.log(result);
 
     for (var i = 0; i < dataPoints.length; i++) {
+      this.myTimestamp = this.datePipe.transform(dataPoints[i].college * 1000, 'MM-dd-yyyy')
+      console.log(this.myTimestamp);
       chartdata.push({
-        label: dataPoints[i].college,
+        label: this.myTimestamp,
         y: dataPoints[i].count
       });
     }
