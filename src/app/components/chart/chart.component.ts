@@ -27,51 +27,39 @@ export class ChartComponent implements OnInit {
     let dataPoints = [
       {
         "college": 1574085727,
-        "count": 25000
-      },
-      {
-        "college": 1573999327,
-        "count": -35000
-      },
-      {
-        "college": 1573826527,
-        "count": -15000
-      },
-      {
-        "college": 1573653727,
-        "count": -25000
+        "count": 25000000
       },
       {
         "college": 1573480927,
-        "count": 34000
+        "count": 340000
       },
       {
         "college": 1573394527,
-        "count": 34000
+        "count": 3400000
       },
       {
         "college": 1573308127,
-        "count": 32000
+        "count": 3200000
       },
       {
         "college": 1573221727,
-        "count": 3100
+        "count": 3100000
       },
       {
         "college": 1573135327,
-        "count": 3900
+        "count": 3900000
       },
       {
         "college": 1572962527,
-        "count": 44000
+        "count": 4400000
       },
       {
         "college": 1572876127,
-        "count": 4400
+        "count": 4400000
       },
       {
         "college": 1572616927,
-        "count": 45000
+        "count": 4500000
       }
     ]
 
@@ -80,12 +68,14 @@ export class ChartComponent implements OnInit {
 
     for (var i = 0; i < dataPoints.length; i++) {
       this.myTimestamp = this.datePipe.transform(dataPoints[i].college * 1000, 'MM-dd-yyyy')
-      console.log(this.myTimestamp);
+
       chartdata.push({
         label: this.myTimestamp,
-        y: dataPoints[i].count
+        y: dataPoints[i].count,
       });
+
     }
+
 
     let chart = new CanvasJS.Chart("chartContainer", {
       theme: 'light2',
@@ -110,6 +100,9 @@ export class ChartComponent implements OnInit {
         }
       },
       axisY: {
+        logarithmic: true,
+        labelFormatter: addSymbols,
+        includeZero: false,
         crosshair: {
           enabled: true,
           snapToDataPoint: true,
@@ -131,6 +124,17 @@ export class ChartComponent implements OnInit {
     this.setColor(chart);
     chart.render();
 
+    function addSymbols(e) {
+      var suffixes = ["", "K", "M", "B"];
+
+      var order = Math.max(Math.floor(Math.log(e.value) / Math.log(1000)), 0);
+      if (order > suffixes.length - 1)
+        order = suffixes.length - 1;
+
+      var suffix = suffixes[order];
+      return CanvasJS.formatNumber(e.value / Math.pow(1000, order)) + suffix;
+    }
+
   }
   setColor(chart) {
     for (var i = 0; i < chart.options.data.length; i++) {
@@ -144,6 +148,8 @@ export class ChartComponent implements OnInit {
     }
 
   }
+
+
 
 
 
