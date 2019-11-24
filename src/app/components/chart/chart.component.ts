@@ -18,64 +18,48 @@ export class ChartComponent implements OnInit {
 
   myTimestamp: any;
 
+  temp: any;
+  tempo: any;
+
   ngOnInit() {
-    // let dataPoints = [];
-
-
-
     let chartdata = [];
     let dataPoints = [
       {
         "college": 1574085727,
-        "count": 25000000
+        "count": 2500000
       },
       {
-        "college": 1573480927,
-        "count": 340000
-      },
-      {
-        "college": 1573394527,
-        "count": 3400000
+        "college": 1574085727,
+        "count": 250000
       },
       {
         "college": 1573308127,
-        "count": 3200000
+        "count": 330000
       },
       {
-        "college": 1573221727,
-        "count": 3100000
+        "college": 1573308127,
+        "count": -840000
       },
       {
-        "college": 1573135327,
-        "count": 3900000
+        "college": 1573308127,
+        "count": -1040000
       },
       {
-        "college": 1572962527,
-        "count": 4400000
-      },
-      {
-        "college": 1572876127,
-        "count": 4400000
-      },
-      {
-        "college": 1572616927,
-        "count": 4500000
+        "college": 1573308127,
+        "count": -1070000
       }
     ]
 
-    // const result = dataPoints.map(function (a) { return a.college * 1000 });
-    // console.log(result);
+
+    var suffixes = ["", "K", "M", "B"];
 
     for (var i = 0; i < dataPoints.length; i++) {
       this.myTimestamp = this.datePipe.transform(dataPoints[i].college * 1000, 'MM-dd-yyyy')
-
       chartdata.push({
         label: this.myTimestamp,
         y: dataPoints[i].count,
       });
-
     }
-
 
     let chart = new CanvasJS.Chart("chartContainer", {
       theme: 'light2',
@@ -100,9 +84,9 @@ export class ChartComponent implements OnInit {
         }
       },
       axisY: {
-        logarithmic: true,
+        // logarithmic: true,
         labelFormatter: addSymbols,
-        includeZero: false,
+        // includeZero: false,
         crosshair: {
           enabled: true,
           snapToDataPoint: true,
@@ -120,19 +104,27 @@ export class ChartComponent implements OnInit {
       }]
     });
 
-    // setColor(chart);
     this.setColor(chart);
     chart.render();
-
-    function addSymbols(e) {
+    function addSymbols(x, y) {
       var suffixes = ["", "K", "M", "B"];
-
-      var order = Math.max(Math.floor(Math.log(e.value) / Math.log(1000)), 0);
+      var order = Math.max(Math.floor(Math.log(x.value) / Math.log(1000)), 0);
+      var orders = Math.max(Math.floor(Math.log(Math.abs(x.value)) / Math.log(1000)), 0);
       if (order > suffixes.length - 1)
         order = suffixes.length - 1;
 
-      var suffix = suffixes[order];
-      return CanvasJS.formatNumber(e.value / Math.pow(1000, order)) + suffix;
+      if (orders > suffixes.length - 1)
+        orders = suffixes.length - 1;
+      console.log('Order', orders)
+
+      if (order > 0) {
+        var suffix = suffixes[order];
+        return CanvasJS.formatNumber(x.value / Math.pow(1000, order)) + suffix;
+      }
+      else {
+        var suffix = suffixes[orders];
+        return CanvasJS.formatNumber(-Math.abs(x.value) / Math.pow(1000, orders)) + suffix;
+      }
     }
 
   }
@@ -148,9 +140,4 @@ export class ChartComponent implements OnInit {
     }
 
   }
-
-
-
-
-
 }
