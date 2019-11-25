@@ -106,6 +106,7 @@ export class ChartComponent implements OnInit {
 
     this.setColor(chart);
     chart.render();
+    this.setMarker(chart);
     function addSymbols(x, y) {
       var suffixes = ["", "K", "M", "B"];
       var order = Math.max(Math.floor(Math.log(x.value) / Math.log(1000)), 0);
@@ -127,6 +128,8 @@ export class ChartComponent implements OnInit {
       }
     }
 
+
+
   }
   setColor(chart) {
     for (var i = 0; i < chart.options.data.length; i++) {
@@ -139,5 +142,42 @@ export class ChartComponent implements OnInit {
       }
     }
 
+  }
+
+  setMarker(chart) {
+    var maxY = -Infinity;
+    var minY = Infinity;
+    var maxYIndex, minYIndex;
+    var viewportMinimum = chart.axisX[0].get("viewportMinimum");
+    var viewportMaximum = chart.axisX[0].get("viewportMaximum");
+    for (var i = 0; i < chart.data[0].dataPoints.length; i++) {
+      chart.options.data[0].dataPoints[i].markerType = "circle";
+      chart.options.data[0].dataPoints[i].indexLabel = " ";
+      if (chart.data[0].dataPoints[i].x >= viewportMinimum && chart.data[0].dataPoints[i].x <= viewportMaximum && chart.data[0].dataPoints[i].y >= maxY) {
+        maxY = chart.data[0].dataPoints[i].y;
+        maxYIndex = i;
+      }
+      if (chart.data[0].dataPoints[i].x >= viewportMinimum && chart.data[0].dataPoints[i].x <= viewportMaximum && chart.data[0].dataPoints[i].y <= minY) {
+        minY = chart.data[0].dataPoints[i].y;
+        minYIndex = i;
+      }
+    }
+    chart.options.data[0].dataPoints[minYIndex].markerSize = chart.options.data[0].dataPoints[maxYIndex].markerSize = 8;
+
+    chart.options.data[0].dataPoints[maxYIndex].markerType = "triangle";
+    chart.options.data[0].dataPoints[maxYIndex].markerColor = "green";
+    chart.options.data[0].dataPoints[maxYIndex].indexLabel = "Highest";
+
+    chart.options.data[0].dataPoints[minYIndex].markerType = "cross";
+    chart.options.data[0].dataPoints[minYIndex].markerColor = "red";
+    chart.options.data[0].dataPoints[minYIndex].indexLabel = "Lowest";
+
+    /*   chart.options.axisY.stripLines[0].value = minY;
+      chart.options.axisY.stripLines[0].label = minY;
+      
+      chart.options.axisY.stripLines[1].value = maxY;
+      chart.options.axisY.stripLines[1].label = maxY; */
+
+    chart.render();
   }
 }
