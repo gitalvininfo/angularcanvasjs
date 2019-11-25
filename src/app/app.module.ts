@@ -42,6 +42,8 @@ import {
 import { ChartComponent } from './components/chart/chart.component';
 import { CustomdatePipe } from './customdate.pipe';
 import { WinlossComponent } from './components/winloss/winloss.component';
+import { PieComponent } from './components/pie/pie.component';
+import { AnotherpieComponent } from './components/anotherpie/anotherpie.component';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { WinlossComponent } from './components/winloss/winloss.component';
     CommentButtonComponent,
     ChartComponent,
     CustomdatePipe,
-    WinlossComponent
+    WinlossComponent,
+    PieComponent,
+    AnotherpieComponent,
   ],
   imports: [
     BrowserModule,
