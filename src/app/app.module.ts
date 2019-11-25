@@ -40,6 +40,8 @@ import {
   MatStepperModule
 } from '@angular/material';
 import { ChartComponent } from './components/chart/chart.component';
+import { CustomdatePipe } from './customdate.pipe';
+import { WinlossComponent } from './components/winloss/winloss.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { ChartComponent } from './components/chart/chart.component';
     AppComponent,
     CommentsContainerComponent,
     CommentButtonComponent,
-    ChartComponent
+    ChartComponent,
+    CustomdatePipe,
+    WinlossComponent
   ],
   imports: [
     BrowserModule,

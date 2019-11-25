@@ -1,75 +1,63 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+
 // import * as CanvasJS from '';
 import * as CanvasJS from './canvasjs.min';
 import { getRtlScrollAxisType } from '@angular/cdk/platform';
-
+// import { CustomdatePipe } from '../../customdate.pipe';
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css']
+  styleUrls: ['./chart.component.css'],
+  providers: [DatePipe]
 })
 export class ChartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private datePipe: DatePipe) { }
+
+
+  myTimestamp: any;
+
+  temp: any;
+  tempo: any;
 
   ngOnInit() {
-    // let dataPoints = [];
     let chartdata = [];
     let dataPoints = [
       {
-        "college": "CIT",
-        "count": 250
+        "college": 1574085727,
+        "count": 2500000
       },
       {
-        "college": "CBA",
-        "count": -350
+        "college": 1574085727,
+        "count": 250000
       },
       {
-        "college": "CCJE",
-        "count": -150
+        "college": 1573308127,
+        "count": 330000
       },
       {
-        "college": "OED",
-        "count": -250
+        "college": 1573308127,
+        "count": -840000
       },
       {
-        "college": "CAS",
-        "count": 340
+        "college": 1573308127,
+        "count": -1040000
       },
       {
-        "college": "CAS",
-        "count": 340
-      },
-      {
-        "college": "CAS",
-        "count": 340
-      },
-      {
-        "college": "CAS",
-        "count": 340
-      },
-      {
-        "college": "CAS",
-        "count": 340
-      },
-      {
-        "college": "CAS",
-        "count": 340
-      },
-      {
-        "college": "CAS",
-        "count": 340
-      },
-      {
-        "college": "CAS",
-        "count": 340
+        "college": 1573308127,
+        "count": -1070000
       }
     ]
-    console.log('Datapoints', dataPoints);
+
+
+    var suffixes = ["", "K", "M", "B"];
+
     for (var i = 0; i < dataPoints.length; i++) {
+      this.myTimestamp = this.datePipe.transform(dataPoints[i].college * 1000, 'MM-dd-yyyy')
       chartdata.push({
-        label: dataPoints[i].college,
-        y: dataPoints[i].count
+        label: this.myTimestamp,
+        y: dataPoints[i].count,
       });
     }
 
@@ -87,6 +75,7 @@ export class ChartComponent implements OnInit {
         borderColor: '#444',
         fontColor: '#444',
         content: "{name}: {y}"
+
       },
       axisX: {
         crosshair: {
@@ -95,6 +84,9 @@ export class ChartComponent implements OnInit {
         }
       },
       axisY: {
+        // logarithmic: true,
+        labelFormatter: addSymbols,
+        // includeZero: false,
         crosshair: {
           enabled: true,
           snapToDataPoint: true,
@@ -102,26 +94,50 @@ export class ChartComponent implements OnInit {
       },
 
       data: [{
-        markerType: "none",
         name: "Total",
+        markerSize: 0,
+        markerType: "circle",
+        markerColor: "#00695c",
         type: "line",
         lineColor: "#00695c",
-        dataPoints: chartdata, markerColor: "#ddd"
+        dataPoints: chartdata
       }]
     });
 
-    setColor(chart);
+    this.setColor(chart);
     chart.render();
-    function setColor(chart) {
-      for (var i = 0; i < chart.options.data.length; i++) {
-        const dataSeries = chart.options.data[i];
-        for (var j = 0; j < dataSeries.dataPoints.length; j++) {
-          if (dataSeries.dataPoints[j].y <= 0)
-            dataSeries.dataPoints[j].lineColor = '#ff443d';
+    function addSymbols(x, y) {
+      var suffixes = ["", "K", "M", "B"];
+      var order = Math.max(Math.floor(Math.log(x.value) / Math.log(1000)), 0);
+      var orders = Math.max(Math.floor(Math.log(Math.abs(x.value)) / Math.log(1000)), 0);
+      if (order > suffixes.length - 1)
+        order = suffixes.length - 1;
+
+      if (orders > suffixes.length - 1)
+        orders = suffixes.length - 1;
+      console.log('Order', orders)
+
+      if (order > 0) {
+        var suffix = suffixes[order];
+        return CanvasJS.formatNumber(x.value / Math.pow(1000, order)) + suffix;
+      }
+      else {
+        var suffix = suffixes[orders];
+        return CanvasJS.formatNumber(-Math.abs(x.value) / Math.pow(1000, orders)) + suffix;
+      }
+    }
+
+  }
+  setColor(chart) {
+    for (var i = 0; i < chart.options.data.length; i++) {
+      const dataSeries = chart.options.data[i];
+      for (var j = 0; j < dataSeries.dataPoints.length; j++) {
+        if (dataSeries.dataPoints[j].y <= 0) {
+          dataSeries.dataPoints[j].lineColor = '#ff443d';
+          dataSeries.dataPoints[j].markerColor = '#ff443d';
         }
       }
     }
 
   }
-
 }
