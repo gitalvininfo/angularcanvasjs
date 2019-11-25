@@ -65,7 +65,7 @@ export class ChartComponent implements OnInit {
         "count": 340
       }
     ]
-
+    console.log('Datapoints', dataPoints);
     for (var i = 0; i < dataPoints.length; i++) {
       chartdata.push({
         label: dataPoints[i].college,

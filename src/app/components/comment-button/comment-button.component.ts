@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener, ElementRef } from '@angular/core';
+import {CommentsContainerComponent} from '../comments-container/comments-container.component'
+
+
 
 @Component({
   selector: 'app-comment-button',
@@ -8,26 +11,7 @@ import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@a
 export class CommentButtonComponent implements OnInit {
   xpandStatus: boolean;
   @Output() xpandEvent = new EventEmitter();
-  constructor() { }
-
-  public wasInside = false;
-
-  @HostListener('click')
-  clickInside() {
-    this.wasInside = true;
-    console.log('Was Inside ', this.wasInside);
-  }
-
-  @HostListener('document:click')
-  clickout() {
-    if (!this.wasInside) {
-      this.xpandStatus = false;
-      console.log('Was Inside ', this.wasInside);
-    }
-    this.wasInside = false;
-    this.xpandEvent.emit(this.xpandStatus);
-  }
-
+  constructor(private elRef:ElementRef) { }
 
   ngOnInit() {
     this.xpandStatus = false;
