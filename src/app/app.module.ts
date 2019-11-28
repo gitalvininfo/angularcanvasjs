@@ -44,6 +44,7 @@ import { CustomdatePipe } from './customdate.pipe';
 import { WinlossComponent } from './components/winloss/winloss.component';
 import { PieComponent } from './components/pie/pie.component';
 import { AnotherpieComponent } from './components/anotherpie/anotherpie.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { AnotherpieComponent } from './components/anotherpie/anotherpie.componen
     WinlossComponent,
     PieComponent,
     AnotherpieComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

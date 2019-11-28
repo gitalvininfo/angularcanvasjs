@@ -1,0 +1,35 @@
+html {
+    background: url(../../../assets/bg.svg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.example-card {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.image_holder {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.example-header-image {
+    background-image: url(../../../assets/favicon.ico);
+    background-size: cover;
+    border-radius: 0 !important;
+}
+
+.hr_text {
+    line-height: 1rem;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: black;
+    text-align: center;
+    height: 1.5em;
+    opacity: 0.5;
+    width: 20rem;
+}
