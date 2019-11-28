@@ -9,7 +9,27 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AppComponent {
   constructor(private _snackBar: MatSnackBar) { }
   title = 'testapp';
+  dataPoints = [
+    {
+      "date": 1511435475,
+      "count": 250
+    },
+    {
+      "date": 1511435492,
+      "count": -350
+    }
+  ]
 
+  result = this.dataPoints.map(function(a) {return a.date;});
+
+  myHero = this.result[0];
+
+ngOnInit(): void {
+  
+  
+}
+
+<<<<<<< HEAD
   trades_data: any
 
   openSnackBar(message: string, action: string) {
@@ -18,4 +38,6 @@ export class AppComponent {
     });
   }
 
+=======
+>>>>>>> 8a553e5ec21a93fda30bc11a1ffb82a9b3706142
 }
