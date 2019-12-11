@@ -12,10 +12,10 @@ export class CommentsContainerComponent implements OnInit {
   @Input() xpandStatus: boolean;
   @Input() xpandEvent = new EventEmitter();
 
-  
-  constructor(private elementRef:ElementRef) { }
 
-   public wasInside = false;
+  constructor(private elementRef: ElementRef) { }
+
+  public wasInside = false;
 
   // @HostListener('click')
   // clickInside() {
@@ -31,18 +31,22 @@ export class CommentsContainerComponent implements OnInit {
   //   this.xpandEvent.emit(this.xpandStatus);
   // }
 
- 
+
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
     this.elementRef.nativeElement.querySelector('container_comment')
-                                  .addEventListener('click', this.onClick.bind('click', this.onClick.bind(this)));
+      .addEventListener('click', this.onClick.bind('click', this.onClick.bind(this)));
   }
 
   onClick(event) {
     console.log(event);
+  }
+
+  scrollToTop() {
+    window.scrollTo(0, 0);
   }
 
 }

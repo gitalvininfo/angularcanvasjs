@@ -20,16 +20,15 @@ export class AppComponent {
     }
   ]
 
-  result = this.dataPoints.map(function(a) {return a.date;});
+  result = this.dataPoints.map(function (a) { return a.date; });
 
   myHero = this.result[0];
 
-ngOnInit(): void {
-  
-  
-}
+  ngOnInit(): void {
 
-<<<<<<< HEAD
+
+  }
+
   trades_data: any
 
   openSnackBar(message: string, action: string) {
@@ -38,6 +37,4 @@ ngOnInit(): void {
     });
   }
 
-=======
->>>>>>> 8a553e5ec21a93fda30bc11a1ffb82a9b3706142
 }

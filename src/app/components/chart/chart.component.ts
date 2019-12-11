@@ -24,30 +24,30 @@ export class ChartComponent implements OnInit {
   ngOnInit() {
     let chartdata = [];
     let dataPoints = [
-      {
-        "college": 1574085727,
-        "count": 2500000
-      },
-      {
-        "college": 1574085727,
-        "count": 250000
-      },
+      // {
+      //   "college": 1574085727,
+      //   "count": -205000
+      // },
+      // {
+      //   "college": 1574085727,
+      //   "count": -250000
+      // },
       {
         "college": 1573308127,
         "count": 330000
       },
       {
         "college": 1573308127,
-        "count": -840000
+        "count": 840000
       },
-      {
-        "college": 1573308127,
-        "count": -1040000
-      },
-      {
-        "college": 1573308127,
-        "count": -1070000
-      }
+      // {
+      //   "college": 1573308127,
+      //   "count": -1040000
+      // },
+      // {
+      //   "college": 1573308127,
+      //   "count": -1070000
+      // }
     ]
 
 
@@ -116,7 +116,7 @@ export class ChartComponent implements OnInit {
 
       if (orders > suffixes.length - 1)
         orders = suffixes.length - 1;
-      console.log('Order', orders)
+      // console.log('Order', orders)
 
       if (order > 0) {
         var suffix = suffixes[order];
@@ -162,15 +162,53 @@ export class ChartComponent implements OnInit {
         minYIndex = i;
       }
     }
-    chart.options.data[0].dataPoints[minYIndex].markerSize = chart.options.data[0].dataPoints[maxYIndex].markerSize = 8;
 
-    chart.options.data[0].dataPoints[maxYIndex].markerType = "triangle";
-    chart.options.data[0].dataPoints[maxYIndex].markerColor = "green";
-    chart.options.data[0].dataPoints[maxYIndex].indexLabel = "Highest";
+    var tradesLength = chart.options.data[0].dataPoints.length;
+    var highestTrades = chart.data[0].dataPoints[maxYIndex].y;
+    var lowestTrades = chart.data[0].dataPoints[minYIndex].y;
 
-    chart.options.data[0].dataPoints[minYIndex].markerType = "cross";
-    chart.options.data[0].dataPoints[minYIndex].markerColor = "red";
-    chart.options.data[0].dataPoints[minYIndex].indexLabel = "Lowest";
+
+
+
+    var showDefaultMarker = chart.options.data[0].dataPoints[minYIndex].markerSize = chart.options.data[0].dataPoints[maxYIndex].markerSize = 8;
+
+    var highMarkerType = chart.options.data[0].dataPoints[maxYIndex].markerType = "triangle";
+    var highMarkerColor = chart.options.data[0].dataPoints[maxYIndex].markerColor = "green";
+    var highIndexLabel = chart.options.data[0].dataPoints[maxYIndex].indexLabel = "Highest";
+
+    var lowMarkerType = chart.options.data[0].dataPoints[minYIndex].markerType = "cross";
+    var lowMarkerColor = chart.options.data[0].dataPoints[minYIndex].markerColor = "red";
+    var lowIndexLabel = chart.options.data[0].dataPoints[minYIndex].indexLabel = "Lowest";
+
+    // if there are many trades already
+    if (tradesLength > 1) {
+      showDefaultMarker;
+      highMarkerType;
+      highMarkerColor;
+      highIndexLabel;
+
+      lowMarkerType;
+      lowMarkerColor;
+      lowIndexLabel;
+
+    }
+
+    // if the trade count is only 1 and its value is positive
+    else if (tradesLength < 2 && highestTrades > 1) {
+      showDefaultMarker;
+      var highMarkerType = chart.options.data[0].dataPoints[maxYIndex].markerType = "triangle";
+      var highMarkerColor = chart.options.data[0].dataPoints[maxYIndex].markerColor = "green";
+      var highIndexLabel = chart.options.data[0].dataPoints[maxYIndex].indexLabel = "Highest";
+    }
+
+    // if trade count is only 1 and its value is negative;
+    else if (tradesLength < 2 && highestTrades < 1) {
+      showDefaultMarker;
+      lowMarkerType;
+      lowMarkerColor;
+      lowIndexLabel;
+    }
+
 
     /*   chart.options.axisY.stripLines[0].value = minY;
       chart.options.axisY.stripLines[0].label = minY;
