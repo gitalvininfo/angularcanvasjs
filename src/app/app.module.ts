@@ -39,12 +39,14 @@ import {
   MatBadgeModule,
   MatStepperModule
 } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartComponent } from './components/chart/chart.component';
 import { CustomdatePipe } from './customdate.pipe';
 import { WinlossComponent } from './components/winloss/winloss.component';
 import { PieComponent } from './components/pie/pie.component';
 import { AnotherpieComponent } from './components/anotherpie/anotherpie.component';
 import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 @NgModule({
@@ -58,6 +60,7 @@ import { LoginComponent } from './components/login/login.component';
     PieComponent,
     AnotherpieComponent,
     LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +96,9 @@ import { LoginComponent } from './components/login/login.component';
     MatToolbarModule,
     MatTooltipModule,
     MatBadgeModule,
-    MatStepperModule
+    MatStepperModule,
+    FlexLayoutModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
