@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, ElementRef } from '@angular/core';
-import {CommentsContainerComponent} from '../comments-container/comments-container.component'
+import { CommentsContainerComponent } from '../comments-container/comments-container.component'
 
 
 
@@ -11,18 +11,23 @@ import {CommentsContainerComponent} from '../comments-container/comments-contain
 export class CommentButtonComponent implements OnInit {
   xpandStatus: boolean;
   @Output() xpandEvent = new EventEmitter();
-  constructor(private elRef:ElementRef) { }
+  constructor(private elRef: ElementRef) { }
 
   ngOnInit() {
     this.xpandStatus = false;
   }
 
+  ngOnChanges() {
+    this.click();
+
+  }
 
 
   click() {
     this.xpandStatus = !this.xpandStatus;
     this.xpandEvent.emit(this.xpandStatus);
-    console.log('clicked');
+
+    // console.log('clicked');
   }
 
 }

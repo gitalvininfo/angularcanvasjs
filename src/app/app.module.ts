@@ -47,6 +47,8 @@ import { PieComponent } from './components/pie/pie.component';
 import { AnotherpieComponent } from './components/anotherpie/anotherpie.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { BlockurlDirective } from './directive/blockurl.directive';
+import { ClosepanelDirective } from './directive/closepanel.directive';
 
 
 @NgModule({
@@ -61,6 +63,8 @@ import { SignupComponent } from './components/signup/signup.component';
     AnotherpieComponent,
     LoginComponent,
     SignupComponent,
+    BlockurlDirective,
+    ClosepanelDirective,
   ],
   imports: [
     BrowserModule,

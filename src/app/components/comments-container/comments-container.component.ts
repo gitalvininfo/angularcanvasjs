@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostListener, Output, EventEmitter, ElementRef } from '@angular/core';
-
+import { AppComponent } from '../../app.component';
 @Component({
   selector: 'app-comments-container',
   templateUrl: './comments-container.component.html',
@@ -10,43 +10,46 @@ import { Component, OnInit, Input, HostListener, Output, EventEmitter, ElementRe
 
 export class CommentsContainerComponent implements OnInit {
   @Input() xpandStatus: boolean;
-  @Input() xpandEvent = new EventEmitter();
+  @Output() xpandEvent = new EventEmitter();
+
+  panelOpenState: boolean;
+  isFocusInsideComponent = false;
+  isComponentClicked = false;
+
+  @HostListener('click')
+  clickInside() {
+    this.isFocusInsideComponent = true;
+    // this.isComponentClicked = true;
+    console.log('sulod');
+  }
+
+  @HostListener('document:click')
+  clickout() {
+    if (!this.isFocusInsideComponent && this.isComponentClicked) {
+      // do the heavy process
+
+      this.isComponentClicked = false;
+      console.log('gwa');
+      this.xpandStatus = false;
+
+    }
+    this.isFocusInsideComponent = false;
+  }
 
 
-  constructor(private elementRef: ElementRef) { }
-
-  public wasInside = false;
-
-  // @HostListener('click')
-  // clickInside() {
-  //   this.wasInside = true;
-  // }
-
-  // @HostListener('document:click')
-  // clickout() {
-  //   if (!this.wasInside) {
-  //     this.xpandStatus = false;
-  //   }
-  //   this.wasInside = false;
-  //   this.xpandEvent.emit(this.xpandStatus);
-  // }
-
+  constructor(private elementRef: ElementRef) {
+  }
 
 
   ngOnInit() {
   }
 
-  ngAfterViewInit() {
-    this.elementRef.nativeElement.querySelector('container_comment')
-      .addEventListener('click', this.onClick.bind('click', this.onClick.bind(this)));
-  }
+  // ngOnChanges() {
+  //   setTimeout(() => {
+  //     console.log('Current State', this.xpandStatus);
+  //   });
+  // }
 
-  onClick(event) {
-    console.log(event);
-  }
 
-  scrollToTop() {
-    window.scrollTo(0, 0);
-  }
 
 }

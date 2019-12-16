@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -7,6 +7,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  private wasInside = false;
+  @Input() xpandStatus: boolean;
+  @Output() xpandEvent = new EventEmitter();
+
+
   constructor(private _snackBar: MatSnackBar) { }
   title = 'testapp';
   dataPoints = [
