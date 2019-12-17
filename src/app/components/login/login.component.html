@@ -1,36 +1,43 @@
-<div class="login_page" fxLayout.gt-sm="row wrap" fxLayout="column" fxFlex="100">
+<div class="login_page">
     <br>
-    <div fxLayout="column" class="login_page_content" fxFlex="100" fxLayoutAlign="center center">
-        <div class="image-container">
-            <img src="http://v3plt.pltrades.com/assets/img/app/baseline/pltrades-logo.png" alt="Pltrades Logo" width="200px">
+    <div fxLayout.gt-sm="row wrap" fxLayout="column" class="login_page_content" fxFlex="100" fxLayoutAlign="space-around">
+        <div fxFlex="50" style="background-color: #00695c;">
+            Test
         </div>
-        <mat-card class="example-card">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Welcome to Pltrades</mat-card-title>
-                <mat-card-subtitle>Please sign in to your account below.</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <mat-form-field style="width:100%" appearance="outline">
-                    <mat-label>Username/Email</mat-label>
-                    <input appBlockurl matInput placeholder="Enter Username/Email" #email>
-                    <mat-icon matSuffix>person</mat-icon>
-                </mat-form-field>
-                <mat-form-field style="width:100%" appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input matInput placeholder="Enter Password">
-                    <mat-icon matSuffix>lock</mat-icon>
-                </mat-form-field>
-                <button style="width:100%;background-color:#00695c" mat-raised-button color="primary">Login</button>
+        <div fxFlex="50">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <div class="image-container">
+                    <img src="http://v3plt.pltrades.com/assets/img/app/baseline/pltrades-logo.png" alt="Pltrades Logo" width="200px">
+                </div>
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>Welcome to Pltrades</mat-card-title>
+                        <mat-card-subtitle>Please sign in to your account below.</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-form-field style="width:100%" appearance="outline">
+                            <mat-label>Username/Email</mat-label>
+                            <input appBlockurl matInput placeholder="Enter Username/Email" #email>
+                            <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field style="width:100%" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="Enter Password">
+                            <mat-icon matSuffix>lock</mat-icon>
+                        </mat-form-field>
+                        <button style="width:100%;background-color:#00695c" mat-raised-button color="primary">Login</button>
 
-                <span><p style="text-align: center;color: rgb(207, 203, 203);">OR</p></span>
-                <button style="width:100%;background-color: #1877f2;color: #fff;" mat-raised-button>Continue with Facebook</button>
-            </mat-card-content>
-            <mat-divider></mat-divider>
-            <mat-card-actions>
-                <span><p style="color:#00695c; text-align: center;font-size: 13px;">New to Pltrades? &nbsp; &nbsp; &nbsp; <a href="#" style="text-decoration: none;color:#00695c;"> Sign up for an Account </a></p></span>
-            </mat-card-actions>
-        </mat-card>
+                        <span><p style="text-align: center;color: rgb(207, 203, 203);">OR</p></span>
+                        <button style="width:100%;background-color: #1877f2;color: #fff;" mat-raised-button>Continue with Facebook</button>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-actions>
+                        <span><p style="color:#00695c; text-align: center;font-size: 13px;">New to Pltrades? &nbsp; &nbsp; &nbsp; <a href="#" style="text-decoration: none;color:#00695c;"> Sign up for an Account </a></p></span>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
     </div>
 
     <div class="copyright-container bg-primary">

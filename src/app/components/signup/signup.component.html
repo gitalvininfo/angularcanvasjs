@@ -1,68 +1,96 @@
-<div class="signup_page" fxLayout.gt-sm="row wrap" fxLayout="column" fxFlex="100">
+<div class="signup_page">
     <br>
-    <div fxLayout="column" fxFlex="100" fxLayoutAlign="center center">
-        <div class="image-container">
-            <img src="http://v3plt.pltrades.com/assets/img/app/baseline/pltrades-logo.png" alt="Pltrades Logo" width="200px">
+    <div fxLayout.gt-sm="row wrap" fxLayout="column" class="signup_page_content" fxFlex="100" fxLayoutAlign="space-around">
+        <div fxFlex="50" style="background-color: #00695c;">
+            Test
         </div>
-        <mat-card class="example-card">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Sign up to Pltrades</mat-card-title>
-                <mat-card-subtitle>It only takes a few seconds to create your account.</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div fxLayout.gt-xs="row" fxLayout="column" fxLayoutGap="10px">
-                    <mat-form-field fxFlex="50" appearance="outline">
-                        <mat-label>Firstname</mat-label>
-                        <input matInput placeholder="Enter Firstname">
-                        <mat-icon matSuffix>person</mat-icon>
-                    </mat-form-field>
+        <div fxFlex="50">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <div class="image-container">
+                    <img src="http://v3plt.pltrades.com/assets/img/app/baseline/pltrades-logo.png" alt="Pltrades Logo" width="200px">
+                </div>
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>Sign up to Pltrades</mat-card-title>
+                        <mat-card-subtitle>It only takes a few seconds to create your account.</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div fxLayout.gt-xs="row" fxLayout="column" fxLayoutGap="10px">
+                            <mat-form-field fxFlex="50" appearance="outline">
+                                <mat-label>Firstname</mat-label>
+                                <input matInput placeholder="Enter Firstname">
+                                <mat-icon matSuffix>person</mat-icon>
+                            </mat-form-field>
 
-                    <mat-form-field fxFlex="50" appearance="outline">
-                        <mat-label>Lastname</mat-label>
-                        <input matInput placeholder="Enter Lastname">
-                        <mat-icon matSuffix>person</mat-icon>
-                    </mat-form-field>
-                </div>
-                <div fxLayout="column" fxLayoutGap="10px">
-                    <mat-form-field style="width:100%" appearance="outline">
-                        <mat-label>Email</mat-label>
-                        <input matInput placeholder="Enter Email">
-                        <mat-icon matSuffix>email</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field style="width:100%" appearance="outline">
-                        <mat-label>Username</mat-label>
-                        <input matInput placeholder="Enter Username">
-                        <mat-icon matSuffix>info</mat-icon>
-                    </mat-form-field>
-                </div>
+                            <mat-form-field fxFlex="50" appearance="outline">
+                                <mat-label>Lastname</mat-label>
+                                <input matInput placeholder="Enter Lastname">
+                                <mat-icon matSuffix>person</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div fxLayout="column" fxLayoutGap="10px">
+                            <mat-form-field style="width:100%" appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input matInput placeholder="Enter Email">
+                                <mat-icon matSuffix>email</mat-icon>
+                            </mat-form-field>
+                            <mat-form-field style="width:100%" appearance="outline">
+                                <mat-label>Username</mat-label>
+                                <input matInput placeholder="Enter Username">
+                                <mat-icon matSuffix>info</mat-icon>
+                            </mat-form-field>
+                        </div>
 
-                <div fxLayout.gt-xs="row" fxLayout="column" fxLayoutGap="10px">
-                    <mat-form-field fxFlex="50" appearance="outline">
-                        <mat-label>Password</mat-label>
-                        <input matInput placeholder="Enter Password">
-                        <mat-icon matSuffix>lock</mat-icon>
-                    </mat-form-field>
+                        <div fxLayout.gt-xs="row" fxLayout="column" fxLayoutGap="10px">
+                            <mat-form-field fxFlex="50" appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input matInput placeholder="Enter Password">
+                                <mat-icon matSuffix>lock</mat-icon>
+                            </mat-form-field>
 
-                    <mat-form-field fxFlex="50" appearance="outline">
-                        <mat-label>Confirm Password</mat-label>
-                        <input matInput placeholder="Confirm Password">
-                        <mat-icon matSuffix>lock</mat-icon>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <h5 class="policy">
-                        By clicking "Join Now", you agree to our <b routerLink="/landing" class="landing"> Terms &
-                                    Conditions </b> and
-                        <b class="landing" routerLink="/landing"> Privacy Policy. </b>
-                    </h5>
-                </div>
-                <button style="width:100%;background-color:#00695c" mat-raised-button color="primary">Join Now</button>
-            </mat-card-content>
-            <mat-divider></mat-divider>
-            <mat-card-actions>
-                <span><p style="color:#00695c; text-align: center;font-size: 13px;">Already have an account? &nbsp; &nbsp; &nbsp; <a href="#" style="text-decoration: none;color:#00695c;"> Sign in to Pltrades</a></p></span>
-            </mat-card-actions>
-        </mat-card>
+                            <mat-form-field fxFlex="50" appearance="outline">
+                                <mat-label>Confirm Password</mat-label>
+                                <input matInput placeholder="Confirm Password">
+                                <mat-icon matSuffix>lock</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <h5 class="policy">
+                                By clicking "Join Now", you agree to our <b routerLink="/landing" class="landing"> Terms &
+                                                        Conditions </b> and
+                                <b class="landing" routerLink="/landing"> Privacy Policy. </b>
+                            </h5>
+                        </div>
+                        <button style="width:100%;background-color:#00695c" mat-raised-button color="primary">Join Now</button>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-actions>
+                        <span><p style="color:#00695c; text-align: center;font-size: 13px;">Already have an account? &nbsp; &nbsp; &nbsp; <a href="#" style="text-decoration: none;color:#00695c;"> Sign in to Pltrades</a></p></span>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-container bg-primary">
+        <div fxLayout.xs="column" fxLayout.gt-xs="row wrap" fxLayoutAlign="space-between" class="landing-footer">
+            <p class="copyright"> Copyright © Pltrades 2019 </p>
+
+            <div class="landing_links_container" fxLayoutAlign="center" fxLayoutGap="15px" style="cursor:pointer;">
+                <a class="landing_links" (click)="goToLanding()">
+                            About
+                          </a>
+                <a class="landing_links" (click)="goToLanding()">
+                            Terms
+                          </a>
+                <a class="landing_links" (click)="goToLanding()">
+                            Privacy
+                          </a>
+                <a class="landing_links" (click)="goToLanding()">
+                            Contact Us
+                          </a>
+            </div>
+        </div>
     </div>
 </div>

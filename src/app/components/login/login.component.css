@@ -24,7 +24,7 @@
 
 .example-card {
     max-width: 350px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 .example-header-image {

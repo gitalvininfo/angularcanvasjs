@@ -4,14 +4,23 @@
     position: relative;
 }
 
-.example-card {
-    max-width: 480px;
-    margin: 0 auto;
+.signup_page_content {
+    padding-bottom: 110px;
 }
 
-.image_holder {
-    margin: 0 auto;
-    text-align: center;
+.example-card {
+    max-width: 480px;
+    /* margin: 0 auto; */
+}
+
+.copyright-container {
+    position: absolute;
+    bottom: 0;
+    width: 97%;
+    padding: 0px 16px 0px 16px;
+    background-color: #00695c;
+    color: #fff;
+    font-size: 11px;
 }
 
 .example-header-image {
@@ -33,7 +42,7 @@
 }
 
 .image-container {
-    padding: 16px 16px 32px 16px;
+    padding: 0px 16px 16px 16px;
 }
 
 .mat-card-header .mat-card-title {
