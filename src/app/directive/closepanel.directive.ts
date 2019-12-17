@@ -1,34 +1,34 @@
-import { Directive, HostListener, Input, Output, EventEmitter } from '@angular/core';
+import { Directive, ElementRef, Inject, Input, OnChanges, OnInit, Renderer, AfterViewInit, DoCheck } from '@angular/core';
 
 @Directive({
   selector: '[appClosepanel]'
 })
-export class ClosepanelDirective {
-  @Input() xpandStatus: boolean;
-  @Output() xpandEvent = new EventEmitter();
-  constructor() { }
-  private wasInside = false;
-  @HostListener('document:click')
-  clickout() {
-    this.wasInside = false;
-    console.log('Was Outside', this.wasInside)
-    if (!this.wasInside) {
-      this.xpandStatus = false;
-    }
-    this.xpandStatus = !this.xpandStatus;
-    this.xpandEvent.emit(this.xpandStatus);
+export class ClosepanelDirective implements AfterViewInit, DoCheck {
+  private lastVisible: boolean = false;
+  private initialised: boolean = false;
+
+  constructor(private el: ElementRef) {
   }
 
+  ngAfterViewInit() {
+    console.log('inside FocusDirective.ngAfterViewInit()');
+    this.initialised = true;
+    this.ngDoCheck();
+  }
 
-  // @HostListener('document:click')
-  // clickout() {
-  //   this.wasInside = false;
-  //   console.log('Was Outside', this.wasInside)
-  //   // if (!this.wasInside) {
-  //   //   this.xpandStatus = false;
-  //   // }
-  //   // // this.xpandStatus = !this.xpandStatus;
-  //   // // this.xpandEvent.emit(this.xpandStatus);
-  // }
+  ngDoCheck() {
 
+    console.log('inside FocusDirective.ngDoCheck()');
+
+    if (!this.initialised) {
+      return;
+    }
+    const visible = !!this.el.nativeElement.offsetParent;
+    if (visible && !this.lastVisible) {
+      setTimeout(() => {
+        this.el.nativeElement.focus();
+      }, 1);
+    }
+    this.lastVisible = visible;
+  }
 }

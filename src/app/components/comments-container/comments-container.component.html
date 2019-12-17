@@ -1,4 +1,6 @@
-<mat-expansion-panel [(expanded)]="xpandStatus">
-
-    <p>I'm visible because I am open</p>
+<mat-expansion-panel [(expanded)]="xpandStatus" (opened)="scroll(terms)">
+    <p #terms>I'm visible because I am open</p>
+    <mat-form-field>
+        <input #searchInput type="text" matInput>
+    </mat-form-field>
 </mat-expansion-panel>

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, HostListener, Output, EventEmitter, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, HostListener, Output, EventEmitter, ElementRef, ViewChild, AfterContentInit, AfterViewInit, SimpleChanges, OnChanges, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from '../../app.component';
+import { MatInput } from '@angular/material';
 @Component({
   selector: 'app-comments-container',
   templateUrl: './comments-container.component.html',
@@ -8,10 +9,12 @@ import { AppComponent } from '../../app.component';
 
 
 
-export class CommentsContainerComponent implements OnInit {
+export class CommentsContainerComponent implements OnInit, AfterViewInit {
   @Input() xpandStatus: boolean;
   @Output() xpandEvent = new EventEmitter();
 
+  // @ViewChild('emailInput', { read: ElementRef, static: false }) usrFld: ElementRef;
+  @ViewChild('searchInput', { static: false }) private searchInput: ElementRef;
   panelOpenState: boolean;
   isFocusInsideComponent = false;
   isComponentClicked = false;
@@ -37,12 +40,30 @@ export class CommentsContainerComponent implements OnInit {
   }
 
 
-  constructor(private elementRef: ElementRef) {
+  constructor(private elementRef: ElementRef, private cd: ChangeDetectorRef) {
   }
+
+  scroll(element: any) {
+
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    console.log('it is opened')
+    setTimeout(() => this.searchInput.nativeElement.focus(), 500);
+
+  }
+
 
 
   ngOnInit() {
+
   }
+
+  ngAfterViewInit() {
+    // this.usrFld.nativeElement.focus(); this.cd.detectChanges();
+
+
+  }
+
+
 
   // ngOnChanges() {
   //   setTimeout(() => {
