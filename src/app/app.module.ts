@@ -49,7 +49,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { BlockurlDirective } from './directive/blockurl.directive';
 import { ClosepanelDirective } from './directive/closepanel.directive';
-
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 
 @NgModule({
   declarations: [
@@ -101,10 +101,12 @@ import { ClosepanelDirective } from './directive/closepanel.directive';
     MatTooltipModule,
     MatBadgeModule,
     MatStepperModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SnotifyModule
 
   ],
-  providers: [],
+  providers: [{ provide: 'SnotifyToastConfig', useValue: ToastDefaults },
+    SnotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
