@@ -19,23 +19,40 @@ export class CommentsContainerComponent implements OnInit, AfterViewInit {
   isFocusInsideComponent = false;
   isComponentClicked = false;
 
+
+
   @HostListener('click')
   clickInside() {
     this.isFocusInsideComponent = true;
-    // this.isComponentClicked = true;
-    console.log('sulod');
+    this.isComponentClicked = true;
+    console.log('inside container');
+    console.log('xpand ?', this.xpandStatus);
   }
 
   @HostListener('document:click')
   clickout() {
+
     if (!this.isFocusInsideComponent && this.isComponentClicked) {
       // do the heavy process
 
       this.isComponentClicked = false;
-      console.log('gwa');
+      console.log('outside');
       this.xpandStatus = false;
-
+      console.log('xpand ?', this.xpandStatus)
     }
+
+    if (!this.isFocusInsideComponent && !this.xpandStatus) {
+      console.log('no outside shit');
+    }
+    else if (this.xpandStatus && !this.isFocusInsideComponent) {
+      console.log('oopss idiot thats outside')
+      console.log(!this.isFocusInsideComponent)
+      this.xpandStatus = false;
+      if (this.xpandStatus = false) {
+        console.log('Fuck it closes');
+      }
+    }
+
     this.isFocusInsideComponent = false;
   }
 
@@ -44,21 +61,20 @@ export class CommentsContainerComponent implements OnInit, AfterViewInit {
   }
 
   scroll(element: any) {
-
     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     console.log('it is opened')
     setTimeout(() => this.searchInput.nativeElement.focus(), 500);
-
+    this.isFocusInsideComponent = true;
+    this.xpandStatus = true;
   }
 
 
 
   ngOnInit() {
-
+    console.log('status init', this.xpandStatus);
   }
 
   ngAfterViewInit() {
-    // this.usrFld.nativeElement.focus(); this.cd.detectChanges();
 
 
   }
@@ -67,7 +83,8 @@ export class CommentsContainerComponent implements OnInit, AfterViewInit {
 
   // ngOnChanges() {
   //   setTimeout(() => {
-  //     console.log('Current State', this.xpandStatus);
+  //     this.isFocusInsideComponent = true;
+  //     this.isComponentClicked = true;
   //   });
   // }
 
