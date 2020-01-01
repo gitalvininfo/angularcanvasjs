@@ -1,0 +1,76 @@
+<div class="w-100">
+    <mat-toolbar class="bg-primary">
+        <mat-toolbar-row>
+            <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+                    <mat-icon>menu</mat-icon>
+                </button>
+            <!-- <a routerLink="/traders/dashboard" class="small-logo">
+                <img style="height: 38px;margin-top:7px;" src="assets/download.png" alt="pltrades logo">
+            </a> -->
+            <span class="pltrades-text" routerLink="/traders/dashboard">Pltrades</span>
+            <span class="menu-spacer"></span>
+            <div fxShow="true" fxHide.lt-md fxLayoutGap="20px">
+                <button mat-button color="primary" class="login_button">Login</button>
+                <button mat-button color="primary" class="signup_button">Sign Up</button>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-sidenav-container fxFlexFill>
+        <mat-sidenav #sidenav class="">
+            <mat-nav-list>
+                <button mat-button color="primary">Login</button>
+                <button mat-button color="primary">Sign Up</button>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content fxFlexFill>
+            <div class="container">
+                <!-- <div class="overlay"></div> -->
+                <div fxLayout="row wrap" fxLayoutAlign="start">
+                    <div class="main_landing_content">
+                        <div class="main_landing_text">
+                            <span class="h1"> EVERY TRADE HAS A STORY, RECORD YOURS AND INSPIRE OTHERS.</span>
+                            <span><p>Join thousanads who've already discovered smarter investing by automatically copying the leading traders in our community, or get copied yourself to earn a second income</p></span>
+                            <div class="main_page_buttons">
+                                <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start">
+                                    <button mat-raised-button color="accent" class="learn_more_button">Learn More</button>
+                                    <button mat-raised-button color="accent" class="get_started_button">Get Started</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+<mat-divider></mat-divider>
+<br> <br>
+<!-- <div class="bg-primary w-100">
+    <div fxLayout.xs="column" fxLayout.gt-xs="row wrap" fxLayoutAlign="space-between center" class="landing-footer">
+        <span>Copyright &copy; Pltrades 2019</span>
+        <span fxLayoutGap="15px">
+                <button mat-icon-button>
+                    <mat-icon>
+                        <a href="https://www.facebook.com/pltrades/" target="_blank">
+                            <img style="margin-top:-5px;width:35px;" src="../../../assets/img/logo/landing/facebook-24.png">
+                        </a>
+                    </mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon>
+                        <a href="#" target="_blank">
+                            <img style="margin-top:-5px;width:35px;" src="../../../assets/img/logo/landing/twitter.png">
+                        </a>
+                    </mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon>
+                        <a href="https://www.instagram.com/pltrades/" target="_blank">
+                            <img style="margin-top:-5px;width:35px;" src="../../../assets/img/logo/landing/instagram.png">
+                        </a>
+                    </mat-icon>
+                </button>
+            </span>
+    </div>
+</div> -->

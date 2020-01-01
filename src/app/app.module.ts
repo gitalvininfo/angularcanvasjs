@@ -50,6 +50,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { BlockurlDirective } from './directive/blockurl.directive';
 import { ClosepanelDirective } from './directive/closepanel.directive';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+import { LandingComponent } from './components/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
     SignupComponent,
     BlockurlDirective,
     ClosepanelDirective,
+    LandingComponent,
   ],
   imports: [
     BrowserModule,
