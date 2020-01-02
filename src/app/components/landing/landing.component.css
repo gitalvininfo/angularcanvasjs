@@ -92,3 +92,33 @@
 .bg-primary {
     background-color: #00695c;
 }
+
+.header-button-container {
+    padding: 10px
+}
+
+.header-button {
+    background-color: transparent;
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    border: 1px solid #fff
+}
+
+@media only screen and (max-width:600px) {
+    .main_landing_text {
+        padding: 20px;
+    }
+}
+
+.footer-container {
+    background-color: #fff;
+}
+
+.footer-about {
+    padding: 20px;
+}
+
+.copyright-container {
+    padding: 20px
+}
