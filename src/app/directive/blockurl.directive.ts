@@ -1,4 +1,4 @@
-import { Directive, HostListener, ElementRef } from '@angular/core';
+import { Directive, HostListener, ElementRef, Output, EventEmitter } from '@angular/core';
 
 @Directive({
   selector: '[appBlockurl]'
@@ -6,17 +6,17 @@ import { Directive, HostListener, ElementRef } from '@angular/core';
 export class BlockurlDirective {
 
   constructor(private el: ElementRef) { }
-
+  @Output() detectURL = new EventEmitter();
+  isDisabled: boolean;
   expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
   regex = new RegExp(this.expression);
 
   @HostListener('keyup') check() {
     if (this.el.nativeElement.value.match(this.regex)) {
-      alert('You have entered a URL!');
-      // Remove entered content
-      this.el.nativeElement.value = '';
+      this.detectURL.emit(true);
+
     } else {
-      console.log('Does not match');
+      this.detectURL.emit(false);
     }
   }
 

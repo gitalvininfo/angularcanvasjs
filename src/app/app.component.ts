@@ -1,5 +1,5 @@
 import { Component, HostListener, Input, Output, EventEmitter } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,39 +7,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private wasInside = false;
-  @Input() xpandStatus: boolean;
-  @Output() xpandEvent = new EventEmitter();
+
+  isDisabled: boolean;
 
 
-  constructor(private _snackBar: MatSnackBar) { }
-  title = 'testapp';
-  dataPoints = [
-    {
-      "date": 1511435475,
-      "count": 250
-    },
-    {
-      "date": 1511435492,
-      "count": -350
-    }
-  ]
+  constructor(private formBuilder: FormBuilder) { }
 
-  result = this.dataPoints.map(function (a) { return a.date; });
-
-  myHero = this.result[0];
-
-  ngOnInit(): void {
-
-
+  detectURL(event) {
+    this.isDisabled = event;
+    console.log(event);
   }
 
-  trades_data: any
+  ngOnInit() {
 
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open('Fuck', 'Test', {
-      duration: 600000,
-    });
   }
 
 }

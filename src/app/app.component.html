@@ -25,4 +25,15 @@
 <!-- <app-winloss></app-winloss> -->
 <!-- <ng-snotify></ng-snotify> -->
 
-<app-landing></app-landing>
+<!-- <app-landing></app-landing> -->
+
+<div style="margin:100px 0px 0px 100px;">
+
+    <mat-form-field appearance="outline">
+        <input matInput appBlockurl (detectURL)="detectURL($event)" />
+    </mat-form-field>
+    <mat-error *ngIf="isDisabled">No URL Please.</mat-error> <br>
+
+    <button mat-raised-button color="accent" [disabled]="isDisabled">Register</button>
+
+</div>
