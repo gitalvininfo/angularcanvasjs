@@ -1,0 +1,105 @@
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form action="#">
+            <h1 class="h1-main">Sign up to Pltrades</h1>
+            <div class="social-container">
+                <a href="#" class="social">
+                    <img src="../../../assets/facebook.png" width="45" alt="">
+                </a>
+            </div>
+            <span class="label-span">or use your email for registration</span>
+            <div fxLayout.gt-xs="row" fxLayoutAlign="center" fxLayout="column" fxLayoutGap="5px">
+                <mat-form-field fxFlex="45">
+                    <mat-label>Firstname</mat-label>
+                    <input matInput placeholder="Enter Firstname">
+                </mat-form-field>
+                <mat-form-field fxFlex="45">
+                    <mat-label>Lastname</mat-label>
+                    <input matInput placeholder="Enter Lastname">
+                </mat-form-field>
+            </div>
+            <mat-form-field style="width:100%">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter Email">
+            </mat-form-field>
+            <mat-form-field style="width:100%">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Enter Username">
+            </mat-form-field>
+            <div fxLayout.gt-xs="row" fxLayoutAlign="center" fxLayout="column" fxLayoutGap="5px">
+                <mat-form-field fxFlex="45">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Enter Password">
+                </mat-form-field>
+                <mat-form-field fxFlex="45">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput placeholder="Confirm Password">
+                </mat-form-field>
+            </div>
+            <small style="font-size: 10px; margin: -17px 0px 20px 0px; text-align: left;">
+                By clicking "Continue with Facebook" or "Join Now", you agree to our Terms &
+                Conditions and Privacy Policy.
+            </small>
+            <button>Sign Up</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="#">
+            <h1 class="h1-main">Sign in to Pltrades</h1>
+            <div class="social-container">
+                <a href="#" class="social">
+                    <img src="../../../assets/facebook.png" width="45" alt="">
+                </a>
+            </div>
+            <span class="label-span">or use your account</span> <br>
+            <mat-form-field style="width:100%">
+                <mat-label>Username/Email</mat-label>
+                <input matInput placeholder="Enter Username/Email" value="yansonalvin29@gmail.com">
+            </mat-form-field>
+            <mat-form-field style="width:100%">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Enter Password" value="yansonalvin29@gmail.com">
+            </mat-form-field>
+            <button>Sign In</button>
+            <button class="ghostshow" id="ghostsignUp">Sign Up</button>
+
+
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us, please login with your personal info</p>
+                <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Start your journey</h1>
+                <p>Every trade has a story, Record yours and inspire others.</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div fxLayoutAlign="space-around">
+        <p>
+            All Rights Reserved | Copyright © Pltrades 2019
+        </p>
+        <div fxLayoutAlign="center" fxLayoutGap="15px" style="cursor:pointer;">
+            <p class="landing_links" (click)="goToLanding()">
+                About
+            </p>
+            <p class="landing_links" (click)="goToLanding()">
+                Terms
+            </p>
+            <p class="landing_links" (click)="goToLanding()">
+                Privacy
+            </p>
+            <p class="landing_links" (click)="goToLanding()">
+                Contact Us
+            </p>
+        </div>
+    </div>
+</footer>
