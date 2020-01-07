@@ -1,6 +1,28 @@
 <div class="container" id="container">
-    <div class="form-container sign-up-container">
+    <div>
+        <div *ngIf="showLanding && !showLoginForm" class="main_landing_content">
+            <div class="main_page_buttons">
+                <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between">
+                    <img src="../../../assets/pltrades-logo.png" width="150" alt="pltrades-logo">
+                    <button class="showLogin" (click)="showLogin()">Login</button>
+                </div>
+            </div>
+            <div class="main_landing_text">
+                <span class="h1"> EVERY TRADE HAS A STORY, RECORD YOURS AND INSPIRE OTHERS.</span>
+                <span><p>Join thousanads who've already discovered smarter investing by automatically copying the leading traders in our community, or get copied yourself to earn a second income.</p></span>
+            </div>
+        </div>
+        <div class="get-started-container">
+            <div fxLayoutAlign="center">
+                <button (click)="showLogin()">Get Started with Pltrades</button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="showLoginForm" class="form-container sign-up-container">
+
         <form action="#">
+
             <h1 class="h1-main">Sign up to Pltrades</h1>
             <div class="social-container">
                 <a href="#" class="social">
@@ -43,8 +65,11 @@
             <button>Sign Up</button>
         </form>
     </div>
-    <div class="form-container sign-in-container">
+    <div *ngIf="showLoginForm" class="form-container sign-in-container">
         <form action="#">
+            <div (click)="goToLanding()">
+                <img src="../../../assets/pltrades-logo.png" width="150" alt="pltrades-logo">
+            </div>
             <h1 class="h1-main">Sign in to Pltrades</h1>
             <div class="social-container">
                 <a href="#" class="social">
@@ -80,10 +105,12 @@
             </div>
         </div>
     </div>
+
+
 </div>
 
 <footer>
-    <div fxLayoutAlign="space-around">
+    <div fxLayoutAlign="space-around" fxLayout.gt-sm="row" fxLayout="column">
         <p>
             All Rights Reserved | Copyright © Pltrades 2019
         </p>
