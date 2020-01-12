@@ -1,120 +1,179 @@
 <div class="container" id="container">
-    <div>
-        <div *ngIf="showLanding && !showLoginForm" class="main_landing_content">
+
+    <div class="form-container sign-in-container">
+        <input type="checkbox" id="hide" />
+        <div class="main_landing_content" id="main_landing_content_mobile">
             <div class="main_page_buttons">
                 <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between">
-                    <img src="../../../assets/pltrades-logo.png" width="150" alt="pltrades-logo">
-                    <button class="showLogin" (click)="showLogin()">Login</button>
+                    <div fxLayout="row" fxLayoutGap="12px">
+                        <h1 class="logo" routerLink="/traders/dashboard">Pltrades</h1>
+                    </div>
+                    <label for="hide" class="label-login">Login</label>
+
                 </div>
             </div>
             <div class="main_landing_text">
                 <span class="h1"> EVERY TRADE HAS A STORY, RECORD YOURS AND INSPIRE OTHERS.</span>
-                <span><p>Join thousanads who've already discovered smarter investing by automatically copying the leading traders in our community, or get copied yourself to earn a second income.</p></span>
+                <span>
+                        <p> Keep your performance consistent by regularly
+                            monitoring and updating your trading journal.</p>
+                    </span>
+
+                <div fxLayoutAlign="center">
+                    <button class="get-started-button" id="getStartedMobile">Get Started</button>
+                </div>
             </div>
         </div>
-        <div class="get-started-container">
-            <div fxLayoutAlign="center">
-                <button (click)="showLogin()">Get Started with Pltrades</button>
+        <form class="custom-login-form">
+            <div class="pltrades-logo-mobile">
+                <div fxLayout="row">
+                    <label for="hide">
+                                <img (click)="goToLandingPage()" src="https://bitbucket.org/pltradesteam/frontend/raw/1864ab075ece80b3d8334e9e9b508d7aa5705bbb/src/assets/img/pltrades-logo.png" width="150" alt="pltrades logo">
+                            </label>
+                </div>
             </div>
-        </div>
+            <h1 class="h1-main">Sign In</h1>
+            <div class="facebook-button-container" (click)="signInWithFB()">
+                <div class="facebook-button">
+                    Continue with Facebook
+                </div>
+            </div>
+            <hr class="hr_text" data-content="OR"> <br>
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Username/Email</mat-label>
+                <input matInput placeholder="Enter Username/Email" type="text">
+            </mat-form-field>
+
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter Password" type="password">
+            </mat-form-field>
+            <div class="divider"></div>
+            <small class="by-clicking">
+                    By clicking "Continue with Facebook" or "Login", you agree to our <b (click)="goToLanding()"
+                        class="landing"> Terms & Conditions </b> and
+                    <b class="landing" (click)="goToLanding()"> Privacy Policy. </b>
+                </small>
+            <div class="button-container">
+                <div fxLayout="row" fxLayoutAlign="center">
+                    <button class="login-button-web">Log In</button>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center">
+                    <h1 class="ghostshow have_account" id="createAccountMobile"><span class="new_to"> New to Pltrades? </span> Create an Account</h1>
+                </div>
+            </div>
+            <span class="have_account_web" id="createAccountWeb"> <span class="new_to"> New to Pltrades? </span> Create an Account</span>
+        </form>
     </div>
 
-    <div *ngIf="showLoginForm" class="form-container sign-up-container">
-
-        <form action="#">
-
-            <h1 class="h1-main">Sign up to Pltrades</h1>
-            <div class="social-container">
-                <a href="#" class="social">
-                    <img src="../../../assets/facebook.png" width="45" alt="">
-                </a>
+    <div class="form-container sign-up-container">
+        <div class="pltrades-logo-top">
+            <div fxLayout="row" fxLayoutGap="12px">
+                <h1 class="pltrades-text-web" routerLink="/traders/dashboard" style="color: #444">Pltrades</h1>
             </div>
-            <span class="label-span">or use your email for registration</span>
-            <div fxLayout.gt-xs="row" fxLayoutAlign="center" fxLayout="column" fxLayoutGap="5px">
-                <mat-form-field fxFlex="45">
+        </div>
+        <form>
+            <div class="pltrades-logo-mobile">
+                <div fxLayout="row">
+                    <img src="https://bitbucket.org/pltradesteam/frontend/raw/1864ab075ece80b3d8334e9e9b508d7aa5705bbb/src/assets/img/pltrades-logo.png" width="150" alt="pltrades logo">
+                </div>
+            </div>
+            <h1 class="h1-main">Create your Account</h1>
+            <div class="facebook-button-container" (click)="signInWithFB()">
+                <div class="facebook-button">
+                    Continue with Facebook
+                </div>
+            </div>
+
+            <hr class="hr_text" data-content="OR"> <br>
+            <div fxLayout.gt-xs="row" fxLayoutAlign="center" fxLayout="column" fxLayoutGap="5px" style="min-width: 100%;">
+                <mat-form-field fxFlex="50" appearance="outline">
                     <mat-label>Firstname</mat-label>
                     <input matInput placeholder="Enter Firstname">
                 </mat-form-field>
-                <mat-form-field fxFlex="45">
+                <mat-form-field fxFlex="50" appearance="outline">
                     <mat-label>Lastname</mat-label>
                     <input matInput placeholder="Enter Lastname">
                 </mat-form-field>
             </div>
-            <mat-form-field style="width:100%">
+            <mat-form-field class="w-100" appearance="outline">
                 <mat-label>Email</mat-label>
                 <input matInput placeholder="Enter Email">
             </mat-form-field>
-            <mat-form-field style="width:100%">
+            <mat-form-field class="w-100" appearance="outline">
                 <mat-label>Username</mat-label>
                 <input matInput placeholder="Enter Username">
             </mat-form-field>
-            <div fxLayout.gt-xs="row" fxLayoutAlign="center" fxLayout="column" fxLayoutGap="5px">
-                <mat-form-field fxFlex="45">
+            <div fxLayout.gt-xs="row" fxLayoutAlign="center" fxLayout="column" fxLayoutGap="5px" style="min-width: 100%;">
+                <mat-form-field fxFlex="50" appearance="outline">
                     <mat-label>Password</mat-label>
-                    <input matInput placeholder="Enter Password">
+                    <input matInput placeholder="Enter Password" type="password">
                 </mat-form-field>
-                <mat-form-field fxFlex="45">
+                <mat-form-field fxFlex="50" appearance="outline">
                     <mat-label>Confirm Password</mat-label>
-                    <input matInput placeholder="Confirm Password">
+                    <input matInput placeholder="Confirm Password" type="password">
                 </mat-form-field>
             </div>
-            <small style="font-size: 10px; margin: -17px 0px 20px 0px; text-align: left;">
-                By clicking "Continue with Facebook" or "Join Now", you agree to our Terms &
-                Conditions and Privacy Policy.
-            </small>
-            <button>Sign Up</button>
-        </form>
-    </div>
-    <div *ngIf="showLoginForm" class="form-container sign-in-container">
-        <form action="#">
-            <div (click)="goToLanding()">
-                <img src="../../../assets/pltrades-logo.png" width="150" alt="pltrades-logo">
+            <div class="divider"></div>
+            <small class="by-clicking">
+                    By clicking "Continue with Facebook" or "Join Now", you agree to our <b (click)="goToLanding()"
+                        class="landing"> Terms & Conditions </b> and
+                    <b class="landing" (click)="goToLanding()"> Privacy Policy. </b>
+                </small>
+            <div class="button-container">
+                <div fxLayout="row" fxLayoutAlign="center">
+                    <button (click)="onRegisterSubmit(regForm.value)">Join Now</button>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center">
+                    <h1 class="ghostshow have_account" id="alreadyhaveaccountMobile">Already have an account?</h1>
+                </div>
             </div>
-            <h1 class="h1-main">Sign in to Pltrades</h1>
-            <div class="social-container">
-                <a href="#" class="social">
-                    <img src="../../../assets/facebook.png" width="45" alt="">
-                </a>
-            </div>
-            <span class="label-span">or use your account</span> <br>
-            <mat-form-field style="width:100%">
-                <mat-label>Username/Email</mat-label>
-                <input matInput placeholder="Enter Username/Email" value="yansonalvin29@gmail.com">
-            </mat-form-field>
-            <mat-form-field style="width:100%">
-                <mat-label>Password</mat-label>
-                <input type="password" matInput placeholder="Enter Password" value="yansonalvin29@gmail.com">
-            </mat-form-field>
-            <button>Sign In</button>
-            <button class="ghostshow" id="ghostsignUp">Sign Up</button>
-
 
         </form>
     </div>
     <div class="overlay-container">
         <div class="overlay">
             <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>To keep connected with us, please login with your personal info</p>
-                <button class="ghost" id="signIn">Sign In</button>
+                <div class="pltrades-logo-top">
+                    <div fxLayout="row" fxLayoutGap="12px">
+                        <img class="pltrades-logo-web" src="https://bitbucket.org/pltradesteam/frontend/raw/1864ab075ece80b3d8334e9e9b508d7aa5705bbb/src/assets/img/logo/pltradeslogo.png" alt="pltrades logo">
+                        <h1 class="pltrades-text-web" routerLink="/traders/dashboard">Pltrades</h1>
+                    </div>
+                </div>
+                <!-- <h1>Start your journey</h1>
+                <p>Every trade has a story, Record yours and inspire others.</p> -->
+                <div class="loginSideContent">
+                    <div class="loginContentItem">
+                        <span style="margin-right:10px;"> <mat-icon>timeline</mat-icon> </span>Lorem Ipsum is simply dummy text of
+                    </div>
+                    <div class="loginContentItem">
+                        <span style="margin-right:10px;"> <mat-icon>account_box</mat-icon> </span>Lorem Ipsum is simply dummy text of
+                    </div>
+                    <div class="loginContentItem">
+                        <span style="margin-right:10px;"> <mat-icon>work</mat-icon> </span>Lorem Ipsum is simply dummy text of
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="start">
+                    <button class="ghost" id="signUpWeb">Sign Up</button>
+                </div>
+
             </div>
             <div class="overlay-panel overlay-right">
-                <h1>Start your journey</h1>
-                <p>Every trade has a story, Record yours and inspire others.</p>
-                <button class="ghost" id="signUp">Sign Up</button>
+
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us, please login with your personal info</p>
+                <button class="ghost" id="loginWeb">Log In</button>
             </div>
         </div>
     </div>
-
-
 </div>
 
 <footer>
     <div fxLayoutAlign="space-around" fxLayout.gt-sm="row" fxLayout="column">
-        <p>
-            All Rights Reserved | Copyright © Pltrades 2019
-        </p>
+
         <div fxLayoutAlign="center" fxLayoutGap="15px" style="cursor:pointer;">
+
             <p class="landing_links" (click)="goToLanding()">
                 About
             </p>
@@ -128,5 +187,8 @@
                 Contact Us
             </p>
         </div>
+        <p>
+            All Rights Reserved | Copyright © Pltrades 2019
+        </p>
     </div>
 </footer>

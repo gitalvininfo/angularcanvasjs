@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 * {
     box-sizing: border-box;
 }
@@ -9,18 +8,17 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
-    height: 100vh;
-    margin: -20px 0 50px;
+    font-family: "Montserrat", sans-serif;
 }
 
 h1 {
-    font-weight: bold;
     margin: 0;
 }
 
 .h1-main {
     color: #444;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 h2 {
@@ -29,7 +27,7 @@ h2 {
 
 p {
     font-size: 14px;
-    font-weight: 100;
+    font-weight: 300;
     line-height: 20px;
     letter-spacing: 0.5px;
     margin: 20px 0 30px;
@@ -49,15 +47,47 @@ a {
 button {
     border-radius: 20px;
     border: 1px solid #00695c;
-    /* background-color: #FF4B2B; */
+    cursor: pointer;
     background-color: #00695c;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 12px;
     font-weight: bold;
     padding: 12px 45px;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
+}
+
+.facebook-button-container {
+    padding: 20px 0px;
+    cursor: pointer;
+}
+
+.facebook-button {
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #fff;
+    background-color: #3b5998;
+    padding: 10px 20px;
+    border-radius: 500px;
+    position: relative;
+}
+
+.facebook-logo {
+    position: absolute;
+}
+
+.have_account_web {
+    font-weight: bold;
+    font-size: 13px;
+    color: #00695c;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.new_to {
+    font-weight: normal !important;
 }
 
 button:active {
@@ -70,38 +100,26 @@ button:focus {
 
 button.ghost {
     background-color: transparent;
-    border-color: #FFFFFF;
-}
-
-button.ghostshow {
-    background-color: transparent;
-    border-color: #00695c;
-    color: #444;
+    border-color: #ffffff;
 }
 
 form {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 20px 24px 20px 24px;
-    height: 100%;
+    padding: 70px;
     text-align: center;
-}
-
-
-/* input {
-    background-color: #eee;
-    border: none;
-    padding: 12px 15px;
-    margin: 8px 0;
+    margin: 0 auto;
+    min-height: 100%;
+    min-width: 100%;
     width: 100%;
-} */
+}
 
 .container {
     background-color: #fff;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -120,25 +138,25 @@ form {
 .sign-in-container {
     left: 0;
     width: 50%;
-    z-index: 2;
+    opacity: 0;
+    z-index: 1;
 }
 
 .container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    /* animation: show 0.6s; */
+}
+
+.container.right-panel-active .sign-up-container {
     transform: translateX(100%);
 }
 
 .sign-up-container {
     left: 0;
     width: 50%;
-    opacity: 0;
     z-index: 1;
-}
-
-.container.right-panel-active .sign-up-container {
-    transform: translateX(100%);
-    opacity: 1;
-    z-index: 5;
-    animation: show 0.6s;
 }
 
 @keyframes show {
@@ -171,11 +189,11 @@ form {
 
 .overlay {
     background: #00695c;
-    background-image: linear-gradient(to right, #049c8a8c, rgba(4, 124, 68, 0.73));
+    /* background-image: linear-gradient(to right, #049c8a8c, rgba(4, 124, 68, 0.73)); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
-    color: #FFFFFF;
+    color: #ffffff;
     position: relative;
     left: -100%;
     height: 100%;
@@ -194,13 +212,42 @@ form {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
+    padding: 70px;
     text-align: center;
     top: 0;
     height: 100%;
     width: 50%;
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
+}
+
+.pltrades-logo-top {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.pltrades-text-web {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 12px 12px;
+    color: #fff;
+}
+
+.pltrades-text-web-2 {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 12px 12px;
+    color: #fff;
+}
+
+.pltrades-logo-web {
+    margin: 12px !important;
+    height: 38px;
 }
 
 .overlay-left {
@@ -221,22 +268,38 @@ form {
 }
 
 .social-container {
-    margin: 10px 0px 0px 0px;
+    padding: 5px 10px;
 }
 
 .label-span {
     padding: 10px 0;
+    color: #444;
+    font-size: 13px;
 }
 
 .social-container a {
-    border: 1px solid #DDDDDD;
+    border: 1px solid #dddddd;
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     margin: 0 5px;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.landing {
+    cursor: pointer;
+    color: #00695c !important;
+    text-decoration: underline;
+}
+
+.by-clicking {
+    font-size: 13px;
+    margin: 5px 0px 20px 0px;
+    text-align: left;
+    color: #444;
 }
 
 footer {
@@ -244,7 +307,7 @@ footer {
     color: #444;
     font-size: 14px;
     bottom: 0;
-    position: fixed;
+    position: relative;
     left: 0;
     right: 0;
     text-align: center;
@@ -253,10 +316,7 @@ footer {
 
 footer p {
     margin: 10px 0;
-}
-
-footer i {
-    color: red;
+    font-weight: 300;
 }
 
 footer a {
@@ -264,29 +324,79 @@ footer a {
     text-decoration: none;
 }
 
+#hide {
+    display: none;
+}
+
+
+/* for mobile devices */
+
 @media only screen and (max-width: 599px) {
+    label.label-login {
+        cursor: pointer;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        min-width: 150px;
+        border: 1px solid #fff;
+        padding: 10px;
+        border-radius: 500px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    #hide:checked~#main_landing_content_mobile {
+        display: none;
+    }
+    .form-container {
+        transition: none;
+    }
+    .pltrades-logo-top {
+        display: none;
+    }
     .overlay-container {
         display: none;
     }
     .sign-in-container {
         width: 100%;
     }
+    .custom-login-form {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 100%;
+        display: block;
+    }
     .sign-up-container {
         width: 100%;
+        overflow-y: scroll !important;
+        overflow-x: hidden !important;
     }
-    .container {
-        /* min-height: 700px; */
-    }
-    .container.right-panel-active .sign-up-container {
+    .container.right-panel-active .sign-in-container {
         transform: translateX(0%);
         opacity: 1;
         z-index: 5;
-        animation: show 0.6s;
+        /* animation: show 0.6s; */
     }
-    .showLogin {
-        background-color: transparent;
-        border: 1px solid #fff;
-        color: #fff;
+    button {
+        padding: 12px 12px;
+        min-width: 150px;
+        width: 100%;
+    }
+    .have_account {
+        margin-top: 13px;
+        font-size: 12px;
+        color: #00695c;
+        font-weight: bold;
+    }
+    form {
+        padding: 20px 20px;
+    }
+    .button-container {
+        width: 100% !important;
+        padding: 10px 0px;
+    }
+    .facebook-button-container {
+        width: 100%;
     }
     .main_landing_content {
         z-index: 3;
@@ -295,9 +405,15 @@ footer a {
         background-size: cover;
         background: #00695c;
         background-image: linear-gradient(to right, #017464, rgba(4, 124, 68, 0.73));
+        height: 100%;
+    }
+    .showLogin {
+        background-color: transparent;
+        border: 1px solid #fff;
+        color: #fff;
     }
     .main_landing_text {
-        padding: 30px;
+        padding: 10px 20px;
         color: #fff;
     }
     .main_page_buttons {
@@ -314,13 +430,61 @@ footer a {
         min-width: 200px;
         padding: 20px;
     }
+    .get-started-button {
+        border: 1px solid #fff;
+        background-color: transparent;
+    }
+    .pltrades-logo-mobile {
+        padding: 20px;
+    }
+    .have_account_web {
+        display: none;
+    }
+    footer {
+        position: relative;
+    }
 }
 
+
+/* for big resolutions */
+
 @media only screen and (min-width: 600px) {
+    .main_landing_content {
+        display: none;
+    }
     .ghostshow {
         display: none;
     }
-    /* .main_landing_content {
+    .pltrades-logo-mobile {
         display: none;
-    } */
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    form {
+        padding: 20px;
+    }
+    .overlay-panel {
+        padding: 20px
+    }
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.loginSideContent {
+    color: #fff;
+    /* max-width: 440px; */
+    width: 100%;
+    padding: 0 16px;
+    position: relative;
+}
+
+.loginContentItem {
+    display: flex;
+    font-size: 24px !important;
+    font-weight: bold;
+    line-height: 25px;
+    margin: 48px auto;
 }
