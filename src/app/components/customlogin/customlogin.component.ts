@@ -54,7 +54,7 @@ export class CustomloginComponent implements OnInit {
     const getStartedMobile = document.getElementById('getStartedMobile');
 
     const container = document.getElementById('container');
-    container.classList.add("right-panel-active");
+    // container.classList.add("right-panel-active");
 
     loginWeb.addEventListener('click', () => {
       container.classList.add("right-panel-active");
@@ -65,22 +65,22 @@ export class CustomloginComponent implements OnInit {
     });
 
     createAccountWeb.addEventListener('click', () => {
-      container.classList.remove("right-panel-active");
+      container.classList.add("right-panel-active");
     });
 
 
     createAccountMobile.addEventListener('click', () => {
-      container.classList.remove("right-panel-active");
+      container.classList.add("right-panel-active");
     });
 
     if (getStartedMobile) {
       getStartedMobile.addEventListener('click', () => {
-        container.classList.remove("right-panel-active");
+        container.classList.add("right-panel-active");
       });
     }
 
     alreadyhaveaccountMobile.addEventListener('click', () => {
-      container.classList.add("right-panel-active");
+      container.classList.remove("right-panel-active");
     });
 
     if (this.innerWidth <= 600) {

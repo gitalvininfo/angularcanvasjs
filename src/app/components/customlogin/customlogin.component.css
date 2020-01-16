@@ -64,14 +64,7 @@ button {
 }
 
 .facebook-button {
-    letter-spacing: 3px;
-    font-weight: bold;
-    font-size: 12px;
-    color: #fff;
     background-color: #3b5998;
-    padding: 10px 20px;
-    border-radius: 500px;
-    position: relative;
 }
 
 .facebook-logo {
@@ -124,7 +117,7 @@ form {
     overflow: hidden;
     width: 100%;
     max-width: 100%;
-    min-height: 100%;
+    min-height: 115%;
     margin: 0 auto;
 }
 
@@ -138,24 +131,24 @@ form {
 .sign-in-container {
     left: 0;
     width: 50%;
-    opacity: 0;
-    z-index: 1;
+    z-index: 2;
 }
 
 .container.right-panel-active .sign-in-container {
     transform: translateX(100%);
-    opacity: 1;
-    z-index: 5;
-    /* animation: show 0.6s; */
 }
 
 .container.right-panel-active .sign-up-container {
     transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
 }
 
 .sign-up-container {
     left: 0;
     width: 50%;
+    opacity: 0;
     z-index: 1;
 }
 
@@ -371,11 +364,11 @@ footer a {
         overflow-y: scroll !important;
         overflow-x: hidden !important;
     }
-    .container.right-panel-active .sign-in-container {
+    .container.right-panel-active .sign-up-container {
         transform: translateX(0%);
         opacity: 1;
         z-index: 5;
-        /* animation: show 0.6s; */
+        animation: none;
     }
     button {
         padding: 12px 12px;
