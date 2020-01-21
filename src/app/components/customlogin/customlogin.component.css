@@ -26,10 +26,10 @@ h2 {
 }
 
 p {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 20px;
-    letter-spacing: 0.5px;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 1px;
     margin: 20px 0 30px;
 }
 
@@ -354,15 +354,16 @@ footer a {
         width: 100%;
     }
     .custom-login-form {
-        overflow-y: scroll;
-        overflow-x: hidden;
+/*        overflow-y: scroll;
+        overflow-x: hidden;*/
         height: 100%;
         display: block;
     }
     .sign-up-container {
         width: 100%;
-        overflow-y: scroll !important;
-        overflow-x: hidden !important;
+        display: contents;
+/*        overflow-y: scroll !important;
+        overflow-x: hidden !important;*/
     }
     .container.right-panel-active .sign-up-container {
         transform: translateX(0%);
@@ -417,6 +418,7 @@ footer a {
         font-weight: 600;
         letter-spacing: 5px;
         text-shadow: 1px 1px 1px #444;
+        line-height: 50px
     }
     .get-started-container {
         border-radius: 500px;
@@ -480,4 +482,78 @@ footer a {
     font-weight: bold;
     line-height: 25px;
     margin: 48px auto;
+}
+
+
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both
+}
+
+.animatedFadeInUp {
+    opacity: 0
+}
+
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fade-in.one {
+  -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+.fade-in.two {
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay:1.2s;
+  animation-delay: 1.2s;
 }
