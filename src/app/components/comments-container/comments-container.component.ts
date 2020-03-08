@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener, Output, EventEmitter, ElementRef, ViewChild, AfterContentInit, AfterViewInit, SimpleChanges, OnChanges, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import { MatInput } from '@angular/material';
 @Component({
@@ -9,85 +9,24 @@ import { MatInput } from '@angular/material';
 
 
 
-export class CommentsContainerComponent implements OnInit, AfterViewInit {
-  @Input() xpandStatus: boolean;
-  @Output() xpandEvent = new EventEmitter();
+export class CommentsContainerComponent implements OnInit {
 
-  // @ViewChild('emailInput', { read: ElementRef, static: false }) usrFld: ElementRef;
-  @ViewChild('searchInput', { static: false }) private searchInput: ElementRef;
-  panelOpenState: boolean;
-  isFocusInsideComponent = false;
-  isComponentClicked = false;
+  messages = [
+    { from: "Testing", subject: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when standard dummy text ever since the 1500s, when standard dummy text ever since the 1500s, when ", date: "Mar 08, 2020" },
 
+    { from: "Testing", subject: " but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing ", date: "Mar 09, 2020" },
 
+    { from: "Testing", subject: " but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing", date: "Mar 10, 2020" }
 
-  @HostListener('click')
-  clickInside() {
-    this.isFocusInsideComponent = true;
-    this.isComponentClicked = true;
-    console.log('inside container');
-    console.log('xpand ?', this.xpandStatus);
+  ];
+
+  constructor() {
   }
-
-  @HostListener('document:click')
-  clickout() {
-
-    if (!this.isFocusInsideComponent && this.isComponentClicked) {
-      // do the heavy process
-
-      this.isComponentClicked = false;
-      console.log('outside');
-      this.xpandStatus = false;
-      console.log('xpand ?', this.xpandStatus)
-    }
-
-    if (!this.isFocusInsideComponent && !this.xpandStatus) {
-      console.log('no outside shit');
-    }
-    else if (this.xpandStatus && !this.isFocusInsideComponent) {
-      console.log('oopss idiot thats outside')
-      console.log(!this.isFocusInsideComponent)
-      this.xpandStatus = false;
-      if (this.xpandStatus = false) {
-        console.log('Fuck it closes');
-      }
-    }
-
-    this.isFocusInsideComponent = false;
-  }
-
-
-  constructor(private elementRef: ElementRef, private cd: ChangeDetectorRef) {
-  }
-
-  scroll(element: any) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    console.log('it is opened')
-    setTimeout(() => this.searchInput.nativeElement.focus(), 500);
-    this.isFocusInsideComponent = true;
-    this.xpandStatus = true;
-  }
-
 
 
   ngOnInit() {
-    console.log('status init', this.xpandStatus);
-  }
-
-  ngAfterViewInit() {
-
 
   }
-
-
-
-  // ngOnChanges() {
-  //   setTimeout(() => {
-  //     this.isFocusInsideComponent = true;
-  //     this.isComponentClicked = true;
-  //   });
-  // }
-
 
 
 }

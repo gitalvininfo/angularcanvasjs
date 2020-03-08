@@ -1,0 +1,44 @@
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.comment-text-truncate {
+    white-space: normal !important;
+    overflow-wrap: break-word;
+}
+
+.comment_box_container {
+    height: 300px;
+    overflow: auto;
+    margin: 0px -16px;
+}
+
+.user-comments {
+    padding: 12px 0 !important;
+}
+
+.user-comment-date {
+    font-size: 10px !important;
+}
+
+.mat-list-item {
+    height: auto !important;
+    position: relative;
+}
+
+.user-image {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+}
+
+.more-icon-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

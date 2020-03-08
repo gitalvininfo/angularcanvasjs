@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  panelOpenState: boolean = false;
   isDisabled: boolean;
 
 
@@ -20,6 +20,11 @@ export class AppComponent {
 
   ngOnInit() {
 
+  }
+
+    togglePanel(event) {
+    this.panelOpenState = event;
+    console.log('paneopenstate', this.panelOpenState)
   }
 
 }

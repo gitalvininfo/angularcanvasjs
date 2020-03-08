@@ -17,17 +17,11 @@ export class CommentButtonComponent implements OnInit {
     this.xpandStatus = false;
   }
 
-  ngOnChanges() {
-    this.click();
-
-  }
-
-
   click() {
     this.xpandStatus = !this.xpandStatus;
     this.xpandEvent.emit(this.xpandStatus);
 
-    // console.log('clicked');
+    console.log('clicked');
   }
 
 }

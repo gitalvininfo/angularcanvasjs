@@ -1,7 +1,39 @@
-<mat-expansion-panel [(expanded)]="xpandStatus" (opened)="scroll(terms)">
-    <p #terms>I'm visible because I am open</p>
-    <mat-form-field>
-        <input #searchInput type="text" matInput>
-    </mat-form-field>
-    <button mat-raised-button color="accent">Click</button>
-</mat-expansion-panel>
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="comment_box_container">
+            <mat-list>
+                <mat-list-item *ngFor="let message of messages" class="user-comments">
+                    <img class="user-image" matListAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="...">
+                    <div matLine fxLayout="row" fxLayoutAlign="space-between">
+                        <span class="text-truncate sender">{{message.from}}</span>
+                        <small class="user-comment-date">{{message.date}}</small>
+                    </div>
+                    <p matLine class="comment-text-truncate">{{message.subject}}</p>
+                    <button class="more-icon-button" mat-icon-button>
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <div fxLayout="row" fxLayoutAlign="space-between">
+            <mat-form-field appearance="legacy" style="width:100%;">
+                <mat-label>Enter your comment...</mat-label>
+                <input matInput placeholder="Comment...">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <button mat-button>POST</button>
+        </div>
+        <button mat-icon-button> <mat-icon>thumb_up</mat-icon> </button>
+        <button mat-icon-button>10</button>
+
+
+        <!-- <button mat-button>SHARE</button> -->
+    </mat-card-actions>
+</mat-card>
