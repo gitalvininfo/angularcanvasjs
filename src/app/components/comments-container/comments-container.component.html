@@ -1,8 +1,7 @@
 <mat-card class="example-card">
     <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        <mat-card-title>Comments</mat-card-title>
+        <mat-card-subtitle>Enter your comment for this trade</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <div class="comment_box_container">
@@ -24,12 +23,13 @@
     <mat-card-actions>
         <div fxLayout="row" fxLayoutAlign="space-between">
             <mat-form-field appearance="legacy" style="width:100%;">
-                <mat-label>Enter your comment...</mat-label>
+                <mat-label>Enter your comment here...</mat-label>
                 <input matInput placeholder="Comment...">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
             </mat-form-field>
             <button mat-button>POST</button>
         </div>
+        <div class="remaining"><small>Characters Remaining</small></div>
         <button mat-icon-button> <mat-icon>thumb_up</mat-icon> </button>
         <button mat-icon-button>10</button>
 

@@ -1,5 +1,6 @@
 .example-card {
     max-width: 400px;
+    margin: 16px;
 }
 
 .example-header-image {
@@ -41,4 +42,8 @@
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.remaining {
+    margin-top: -15px;
 }
