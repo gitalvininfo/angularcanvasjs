@@ -1,0 +1,53 @@
+<div fxLayout.gt-sm="row wrap" fxLayout="column" fxFlex="100">
+    <div fxLayout="row" fxFlex="100">
+        <mat-card class="w-100">
+            <mat-card-content>
+                <div fxLayout="row" fxFlex="100" fxLayoutAlign="start">
+                    <div fxFlex="75" fxFlex.xs="100" fxLayout.xs="column" fxLayoutGap="5px">
+                        <div fxFlex="30" fxFlex.xs="35" fxLayoutAlign="center">
+                            <img class="profile-user-image" src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt="">
+                        </div>
+                        <div fxLayout.xs="column" fxLayout="row wrap" fxFlex="65" fxFlex.xs="100">
+                            <div fxFlex="100" fxLayout.xs="column" fxLayoutGap="5px" class="profile-user-name-container">
+                                <span class="profile-user-name">Jesse Franco Tejare Latosa </span>
+                                <span class="profile-user-trader" fxShow.xs fxHide.gt-xs>
+                                    Momentum
+                                </span>
+                                <button mat-raised-button color="primary">Follow</button>
+                            </div>
+                            <div fxFlex="100" class="profile-user-trader-container">
+                                <span class="profile-user-trader" fxShow.gt-xs fxHide.xs>
+                                        Momentum
+                                    </span>
+                            </div>
+                            <div fxFlex="100" class="profile-user-buttons">
+                                <button mat-button>184 trades</button>
+                                <button mat-button>102 followers</button>
+                                <button mat-button>206 following</button>
+
+                            </div>
+                            <div fxFlex="100" class="profile-user-about-container">
+                                <span class="profile-user-about">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="center">
+        <div fxFlex="75" fxFlex.xs="100">
+            <mat-tab-group mat-align-tabs="center" class="w-100" animationDuration="0ms">
+                <mat-tab label="Trade Performance">
+                    By default, the tab contents are eagerly loaded. Eagerly loaded tabs will initalize the child components but not inject them into the DOM until the tab is activated.
+                </mat-tab>
+                <mat-tab label="Trade Details"> Content 2 </mat-tab>
+                <mat-tab label="Trade Plan"> Content 3 </mat-tab>
+                <mat-tab label="Strategies/Plan"> Content 4 </mat-tab>
+
+            </mat-tab-group>
+        </div>
+    </div>
+</div>

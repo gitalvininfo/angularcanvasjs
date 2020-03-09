@@ -1,0 +1,49 @@
+.profile-image {
+    border-radius: 50%;
+}
+
+.profile-user-name-container {
+    margin-left: 16px;
+}
+
+.profile-user-name {
+    font-size: 20px;
+}
+
+.profile-user-image {
+    border-radius: 50%;
+}
+
+.profile-user-about-container {
+    margin-left: 16px;
+}
+
+.profile-user-about {
+    font-size: 13px;
+}
+
+.profile-user-trader-container {
+    margin: -20px 0 0 16px;
+}
+
+.profile-user-trader {
+    font-size: 13px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    .profile-user-trader {
+        padding: 0 0 16px;
+    }
+    .profile-user-buttons {
+        margin-top: -5px;
+    }
+    .profile-user-name-container,
+    profile-user-about-container,
+    profile-user-trader-container {
+        margin-left: 0;
+    }
+}

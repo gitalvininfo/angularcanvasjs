@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommentsContainerComponent } from './components/comments-container/comments-container.component';
 import { CommentButtonComponent } from './components/comment-button/comment-button.component';
 import {
+  MatDividerModule,
   MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
@@ -52,6 +53,7 @@ import { ClosepanelDirective } from './directive/closepanel.directive';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { LandingComponent } from './components/landing/landing.component';
 import { CustomloginComponent } from './components/customlogin/customlogin.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -69,10 +71,12 @@ import { CustomloginComponent } from './components/customlogin/customlogin.compo
     ClosepanelDirective,
     LandingComponent,
     CustomloginComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatDividerModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
