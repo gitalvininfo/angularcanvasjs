@@ -12,4 +12,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClick() {
+    console.log('go to page when click')
+  }
+
+
 }
